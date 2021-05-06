@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Formulário com validação
+    </title>
+
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+    <form>
+      <label for="cpf">CPF: </label>
+      <input 
+        required
+        type="text" 
+        id="cpf"
+        maxlength="14"
+        onkeypress="return cpfInputMask(event)"
+      >
+    </form>
+    
+  </body>
+</html>
