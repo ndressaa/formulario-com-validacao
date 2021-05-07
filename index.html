@@ -18,7 +18,9 @@
         id="cpf"
         maxlength="14"
         onkeypress="return cpfInputMask(event)"
+        onblur="cpfValidation()"
       >
+      <div id="cpf-info"></div>
     </form>
     
   </body>
