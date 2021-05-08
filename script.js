@@ -1,8 +1,27 @@
-let cpf, cpfInfo;
+let email, cpf;
+let emailInfo, cpfInfo;
 
 window.onload = function() {
+  email = document.getElementById('email');
+  emailInfo = document.getElementById('email-info');
+
   cpf = document.getElementById('cpf');
   cpfInfo = document.getElementById('cpf-info');
+}
+
+function emailInputMask(event) {
+  if (event.keyCode >= 97 && event.keyCode <= 122) {
+    return true;
+  }
+  else if (event.keyCode >= 48 && event.keyCode <= 57) {
+    return true;
+  }
+  else if (event.keyCode == 46 || event.keyCode == 64 || event.keyCode == 95) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 function cpfInputMask(event) {
@@ -96,4 +115,5 @@ function cpfValidation() {
   }
 
   cpfInfo.innerHTML = '';
+  return true;
 }

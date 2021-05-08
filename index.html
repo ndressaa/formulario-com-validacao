@@ -11,6 +11,15 @@
   <body>
 
     <form>
+      <label for="email">Email: </label>
+      <input 
+        type="text"
+        id="email"
+        maxlength="40"
+        onkeypress="return emailInputMask(event)"
+      >
+      <div id="email-info"></div>
+      <br>
       <label for="cpf">CPF: </label>
       <input 
         required
