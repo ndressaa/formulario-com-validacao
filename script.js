@@ -24,6 +24,23 @@ function emailInputMask(event) {
   }
 }
 
+function emailValidation() {
+  if (email.value.length == 0) {
+    emailInfo.innerHTML = 'Por favor insira seu E-mail.';
+    return false;
+  }
+
+  if (email.value.indexOf('@') == -1 ||
+      email.value.indexOf('@') == 0 ||
+      email.value.indexOf('@') == email.value.length - 1) {
+    emailInfo.innerHTML = 'E-mail inválido!';
+    return false;
+  }
+
+  emailInfo.innerHTML = '';
+  return true;
+}
+
 function cpfInputMask(event) {
   if (event.keyCode < 48 || event.keyCode > 57) {
     return false;

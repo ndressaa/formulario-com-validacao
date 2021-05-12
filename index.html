@@ -6,23 +6,29 @@
       Formulário com validação
     </title>
 
+    <style>
+      div {
+        height: 16px;
+      }
+    </style>
+
     <script src="script.js"></script>
   </head>
   <body>
 
     <form>
-      <label for="email">Email: </label>
+      <label for="email">E-mail: </label>
       <input 
         type="text"
         id="email"
         maxlength="40"
         onkeypress="return emailInputMask(event)"
+        onblur="emailValidation()"
       >
       <div id="email-info"></div>
       <br>
       <label for="cpf">CPF: </label>
-      <input 
-        required
+      <input
         type="text" 
         id="cpf"
         maxlength="14"
