@@ -7,6 +7,12 @@ window.onload = function() {
 
   cpf = document.getElementById('cpf');
   cpfInfo = document.getElementById('cpf-info');
+
+  email.onkeypress = emailInputMask;
+  email.onblur = emailValidation;
+
+  cpf.onkeypress = cpfInputMask;
+  cpf.onblur = cpfValidation;
 }
 
 function emailInputMask(event) {
