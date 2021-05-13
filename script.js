@@ -1,6 +1,8 @@
 let email, cpf;
 let emailInfo, cpfInfo;
 
+let submit;
+
 window.onload = function() {
   email = document.getElementById('email');
   emailInfo = document.getElementById('email-info');
@@ -8,11 +10,13 @@ window.onload = function() {
   cpf = document.getElementById('cpf');
   cpfInfo = document.getElementById('cpf-info');
 
+  submit = document.getElementById('submit');
+
   email.onkeypress = emailInputMask;
-  email.onblur = emailValidation;
+  email.onblur = fullEmailValidation;
 
   cpf.onkeypress = cpfInputMask;
-  cpf.onblur = cpfValidation;
+  cpf.onblur = fullCpfValidation;
 }
 
 function emailInputMask(event) {
@@ -38,7 +42,11 @@ function emailValidation() {
 
   if (email.value.indexOf('@') == -1 ||
       email.value.indexOf('@') == 0 ||
-      email.value.indexOf('@') == email.value.length - 1) {
+      email.value.indexOf('@') == email.value.length - 1 ||
+      email.value.split('@').length >= 3 ||
+      email.value.indexOf('.') == 0 ||
+      email.value.indexOf('.') == email.value.length - 1 ||
+      email.value.indexOf('_') == email.value.length - 1) {
     emailInfo.innerHTML = 'E-mail inválido!';
     return false;
   }
@@ -139,4 +147,33 @@ function cpfValidation() {
 
   cpfInfo.innerHTML = '';
   return true;
+}
+
+function fullEmailValidation() {
+  emailValidation();
+  formValidation();
+}
+
+function fullCpfValidation() {
+  cpfValidation();
+  formValidation();
+}
+
+function formValidation() {
+  let validateEmail;
+  let validateCpf;
+
+  if (email.value.length != 0 ) {
+    validateEmail = emailValidation();
+  }
+  if (cpf.value.length != 0) {
+    validateCpf = cpfValidation();
+  }
+
+  if (validateEmail && validateCpf) {
+    submit.disabled = false;
+  }
+  else {
+    submit.disabled = true;
+  }
 }
