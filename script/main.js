@@ -6,6 +6,7 @@ let email = document.getElementById('email');
 let cpf = document.getElementById('cpf');
 
 phone.onkeypress = Masks.phoneInput;
+phone.onblur = Validations.fullPhone;
 
 email.onkeypress = Masks.emailInput;
 email.onblur = Validations.fullEmail;

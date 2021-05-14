@@ -1,7 +1,23 @@
+let phoneInfo = document.getElementById('phone-info');
 let emailInfo = document.getElementById('email-info');
 let cpfInfo = document.getElementById('cpf-info');
 
 let submit = document.getElementById('submit');
+
+function phoneValidation() {
+  if (phone.value.length == 0) {
+    phoneInfo.innerHTML = 'Por favor insira seu Telefone.';
+    return false;
+  }
+
+  if (phone.value.length < 15) {
+    phoneInfo.innerHTML = 'Telefone inválido!';
+    return false
+  }
+
+  phoneInfo.innerHTML = '';
+  return true;
+}
 
 function emailValidation() {
   if (email.value.length == 0) {
@@ -100,6 +116,11 @@ function cpfValidation() {
   return true;
 }
 
+function fullPhone() {
+  phoneValidation();
+  formValidation();
+}
+
 function fullEmail() {
   emailValidation();
   formValidation();
@@ -111,8 +132,13 @@ function fullCpf() {
 }
 
 function formValidation() {
+  let validatePhone;
   let validateEmail;
   let validateCpf;
+
+  if (phone.value.length != 0) {
+    validatePhone = phoneValidation();
+  }
 
   if (email.value.length != 0 ) {
     validateEmail = emailValidation();
@@ -121,7 +147,7 @@ function formValidation() {
     validateCpf = cpfValidation();
   }
 
-  if (validateEmail && validateCpf) {
+  if (validatePhone && validateEmail && validateCpf) {
     submit.disabled = false;
   }
   else {
@@ -129,4 +155,4 @@ function formValidation() {
   }
 }
 
-export { fullEmail, fullCpf };
+export { fullPhone, fullEmail, fullCpf };
