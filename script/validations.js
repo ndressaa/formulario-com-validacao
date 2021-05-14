@@ -1,8 +1,19 @@
+let usernameInfo = document.getElementById('username-info');
 let phoneInfo = document.getElementById('phone-info');
 let emailInfo = document.getElementById('email-info');
 let cpfInfo = document.getElementById('cpf-info');
 
 let submit = document.getElementById('submit');
+
+function usernameValidation() {
+  if (username.value.length == 0) {
+    usernameInfo.innerHTML = 'Por favor insira seu Nome.'
+    return false;
+  }
+
+  usernameInfo.innerHTML = '';
+  return true;
+}
 
 function phoneValidation() {
   if (phone.value.length == 0) {
@@ -116,6 +127,11 @@ function cpfValidation() {
   return true;
 }
 
+function fullUsername() {
+  usernameValidation();
+  formValidation();
+}
+
 function fullPhone() {
   phoneValidation();
   formValidation();
@@ -132,9 +148,14 @@ function fullCpf() {
 }
 
 function formValidation() {
+  let validateUsername;
   let validatePhone;
   let validateEmail;
   let validateCpf;
+
+  if (username.value.length != 0) {
+    validateUsername = usernameValidation();
+  }
 
   if (phone.value.length != 0) {
     validatePhone = phoneValidation();
@@ -147,7 +168,10 @@ function formValidation() {
     validateCpf = cpfValidation();
   }
 
-  if (validatePhone && validateEmail && validateCpf) {
+  if (validateUsername && 
+    validatePhone && 
+    validateEmail && 
+    validateCpf) {
     submit.disabled = false;
   }
   else {
@@ -155,4 +179,4 @@ function formValidation() {
   }
 }
 
-export { fullPhone, fullEmail, fullCpf };
+export { fullUsername, fullPhone, fullEmail, fullCpf };
