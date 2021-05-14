@@ -1,3 +1,25 @@
+export function phoneInput(event) {
+  if (event.keyCode < 48 || event.keyCode > 57) {
+    return false;
+  }
+
+  if (phone.value.length == 0) {
+    phone.value += "(";
+  }
+
+  if (phone.value.length == 3) {
+    phone.value += ")";
+  }
+
+  if (phone.value.length == 4) {
+    phone.value += " ";
+  }
+
+  if (phone.value.length == 10) {
+    phone.value += "-";
+  }
+}
+
 export function emailInput(event) {
   if (event.keyCode >= 97 && event.keyCode <= 122) {
     return true;
