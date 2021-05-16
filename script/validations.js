@@ -8,31 +8,37 @@ let submit = document.getElementById('submit');
 function usernameValidation() {
   if (username.value.length == 0) {
     usernameInfo.innerHTML = 'Por favor insira seu Nome.'
+    usernameInfo.classList.add('active');
     return false;
   }
 
   usernameInfo.innerHTML = '';
+  usernameInfo.classList.remove('active');
   return true;
 }
 
 function phoneValidation() {
   if (phone.value.length == 0) {
     phoneInfo.innerHTML = 'Por favor insira seu Telefone.';
+    phoneInfo.classList.add('active');
     return false;
   }
 
   if (phone.value.length < 15) {
     phoneInfo.innerHTML = 'Telefone inválido!';
+    phoneInfo.classList.add('active');
     return false
   }
 
   phoneInfo.innerHTML = '';
+  phoneInfo.classList.remove('active');
   return true;
 }
 
 function emailValidation() {
   if (email.value.length == 0) {
     emailInfo.innerHTML = 'Por favor insira seu E-mail.';
+    emailInfo.classList.add('active');
     return false;
   }
 
@@ -44,21 +50,25 @@ function emailValidation() {
       email.value.indexOf('.') == email.value.length - 1 ||
       email.value.indexOf('_') == email.value.length - 1) {
     emailInfo.innerHTML = 'E-mail inválido!';
+    emailInfo.classList.add('active');
     return false;
   }
 
   emailInfo.innerHTML = '';
+  emailInfo.classList.remove('active');
   return true;
 }
 
 function cpfValidation() {
   if (cpf.value.length == 0) {
     cpfInfo.innerHTML = 'Por favor insira seu CPF.';
+    cpfInfo.classList.add('active');
     return false;
   }
 
   if (cpf.value.length < 14) {
     cpfInfo.innerHTML = 'CPF inválido!';
+    cpfInfo.classList.add('active');
     return false;
   }
 
@@ -73,6 +83,7 @@ function cpfValidation() {
        cpfArray[i+1] == cpfArray[i+2] && 
        cpfArray[i+2] == cpfArray[i+3]) {
       cpfInfo.innerHTML = 'CPF inválido!';
+      cpfInfo.classList.add('active');
       return false;
     }
   }
@@ -94,9 +105,11 @@ function cpfValidation() {
 
   if (result == cpfArray[9]) {
     cpfInfo.innerHTML = '';
+    cpfInfo.classList.remove('active');
   }
   else {
     cpfInfo.innerHTML = 'CPF inválido!';
+    cpfInfo.classList.add('active');
     return false;
   }
 
@@ -120,10 +133,12 @@ function cpfValidation() {
   }
   else {
     cpfInfo.innerHTML = 'CPF inválido!';
+    cpfInfo.classList.add('active');
     return false;
   }
 
   cpfInfo.innerHTML = '';
+  cpfInfo.classList.remove('active');
   return true;
 }
 

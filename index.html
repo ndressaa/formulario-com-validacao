@@ -2,15 +2,13 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>
       Formulário com validação
     </title>
 
-    <style>
-      div {
-        height: 16px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
     <script type="module" src="script/main.js"></script>
   </head>
@@ -23,7 +21,7 @@
         id="username"
       >
       <div id="username-info"></div>
-      <br>
+
       <label for="phone">Telefone: </label>
       <input 
         type="text"
@@ -31,7 +29,7 @@
         maxlength="15"
       >
       <div id="phone-info"></div>
-      <br>
+      
       <label for="email">E-mail: </label>
       <input 
         type="text"
@@ -39,7 +37,7 @@
         maxlength="40"
       >
       <div id="email-info"></div>
-      <br>
+      
       <label for="cpf">CPF: </label>
       <input
         type="text" 
@@ -47,7 +45,7 @@
         maxlength="14"
       >
       <div id="cpf-info"></div>
-      <br>
+      
       <input 
         type="submit"
         id="submit" 
