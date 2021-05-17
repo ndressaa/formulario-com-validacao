@@ -9,11 +9,13 @@ function usernameValidation() {
   if (username.value.length == 0) {
     usernameInfo.innerHTML = 'Por favor insira seu Nome.'
     usernameInfo.classList.add('active');
+    username.style.borderColor = '#D80000';
     return false;
   }
 
   usernameInfo.innerHTML = '';
   usernameInfo.classList.remove('active');
+  username.style.borderColor = 'black';
   return true;
 }
 
@@ -21,17 +23,20 @@ function phoneValidation() {
   if (phone.value.length == 0) {
     phoneInfo.innerHTML = 'Por favor insira seu Telefone.';
     phoneInfo.classList.add('active');
+    phone.style.borderColor = '#D80000';
     return false;
   }
 
   if (phone.value.length < 15) {
     phoneInfo.innerHTML = 'Telefone inválido!';
     phoneInfo.classList.add('active');
+    phone.style.borderColor = '#D80000';
     return false
   }
 
   phoneInfo.innerHTML = '';
   phoneInfo.classList.remove('active');
+  phone.style.borderColor = 'black';
   return true;
 }
 
@@ -39,6 +44,7 @@ function emailValidation() {
   if (email.value.length == 0) {
     emailInfo.innerHTML = 'Por favor insira seu E-mail.';
     emailInfo.classList.add('active');
+    email.style.borderColor = '#D80000';
     return false;
   }
 
@@ -51,11 +57,13 @@ function emailValidation() {
       email.value.indexOf('_') == email.value.length - 1) {
     emailInfo.innerHTML = 'E-mail inválido!';
     emailInfo.classList.add('active');
+    email.style.borderColor = '#D80000';
     return false;
   }
 
   emailInfo.innerHTML = '';
   emailInfo.classList.remove('active');
+  email.style.borderColor = 'black';
   return true;
 }
 
@@ -63,12 +71,14 @@ function cpfValidation() {
   if (cpf.value.length == 0) {
     cpfInfo.innerHTML = 'Por favor insira seu CPF.';
     cpfInfo.classList.add('active');
+    cpf.style.borderColor = '#D80000';
     return false;
   }
 
   if (cpf.value.length < 14) {
     cpfInfo.innerHTML = 'CPF inválido!';
     cpfInfo.classList.add('active');
+    cpf.style.borderColor = '#D80000';
     return false;
   }
 
@@ -84,6 +94,7 @@ function cpfValidation() {
        cpfArray[i+2] == cpfArray[i+3]) {
       cpfInfo.innerHTML = 'CPF inválido!';
       cpfInfo.classList.add('active');
+      cpf.style.borderColor = '#D80000';
       return false;
     }
   }
@@ -106,10 +117,12 @@ function cpfValidation() {
   if (result == cpfArray[9]) {
     cpfInfo.innerHTML = '';
     cpfInfo.classList.remove('active');
+    cpf.style.borderColor = 'black';
   }
   else {
     cpfInfo.innerHTML = 'CPF inválido!';
     cpfInfo.classList.add('active');
+    cpf.style.borderColor = '#D80000';
     return false;
   }
 
@@ -130,15 +143,19 @@ function cpfValidation() {
 
   if (result == cpfArray[10]) {
     cpfInfo.innerHTML = '';
+    cpfInfo.classList.remove('active');
+    cpf.style.borderColor = 'black';
   }
   else {
     cpfInfo.innerHTML = 'CPF inválido!';
     cpfInfo.classList.add('active');
+    cpf.style.borderColor = '#D80000';
     return false;
   }
 
   cpfInfo.innerHTML = '';
   cpfInfo.classList.remove('active');
+  cpf.style.borderColor = 'black';
   return true;
 }
 
@@ -163,10 +180,10 @@ function fullCpf() {
 }
 
 function formValidation() {
-  let validateUsername;
-  let validatePhone;
-  let validateEmail;
-  let validateCpf;
+  let validateUsername,
+      validatePhone,
+      validateEmail,
+      validateCpf;
 
   if (username.value.length != 0) {
     validateUsername = usernameValidation();
